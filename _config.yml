@@ -1,7 +1,7 @@
 # Setup
-title:               Merter
-tagline:             ' - Be daredevil!'
-description:         'Test Description'
+title:               Merter Gülbahar
+tagline:             "Bilgisayar Mühendisi"
+description:         "Yazılım yazalım yayalım! &#128521;"
 url:                 https://merterr.com
 baseurl:             ''
 paginate:            5
@@ -12,6 +12,10 @@ author:
   name:              Merter Gülbahar
   url:               https://twitter.com/m3rt3r
   email:             mertergulbahar[at]gmail.com
+
+#github contact
+github:
+  repo:              https://github.com/merterr
 
 # Gems
 plugins:
