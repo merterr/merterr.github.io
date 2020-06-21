@@ -6,11 +6,12 @@ order : 2
 
 <p class="message">
   Merhaba, ben Merter Gülbahar. Bilgisayar mühendisiyim. Genel olarak web teknolojileri ile uğraşıyorum. Daha çok ASP.NET Core ile yazılım geliştiriyorum. Ek olarak python dili ile de ilgiliyim.
+  Bu blog'da bazen yazılım ile bazen hayatla ilgili bazı bilgiler paylaşıyor olacağım. 
 </p>
 
 Küçüklüğümden beri bir şeyler üretmeyi ve bir şeyleri tamir etmeyi seviyorum. Yapmaktan hoşlandığım şeylerden bazıları yemek yapmak, bitki yetiştimek, hayvan beslemek... Ayrıca düzenli spor yaparım.
-Spor yapmayı hobi olarak dahi görmüyorum. Benim için yemek yemek gibi bir şey.
-Hareket etmek ve o hareketin vücuda yaptığı etkileri bilmek insanı daha biliçli yapıyor ve motive ediyor.
+Spor yapmayı hobi olarak dahi görmüyorum. Benim için bir ihtiyaç.
+Hareket etmek ve o hareketin vücuda yaptığı etkileri bilmek insanı sporda daha biliçli yapıyor ve motive ediyor.
 Son olarak da anatomi, teknoloji ve blog yazma :) ile ilgileniyorum.
 
 ---
