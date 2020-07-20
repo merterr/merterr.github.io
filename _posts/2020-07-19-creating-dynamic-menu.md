@@ -9,7 +9,7 @@ title: Dinamik Menü Nasıl Oluşturulur?
 ![Menü tablosu](../public/images/2020-07-21/iliski_tablo.JPG)
 
 ## Menü tablosundaki örnek veriler
-![Menü tablosu](../public/images/2020-07-21/veriler.png)
+![Menü tablosu](../public/images/2020-07-21/veriler.PNG)
 
 ## Menü ViewModel'in Oluşturulması
 ```csharp
