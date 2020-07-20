@@ -5,13 +5,13 @@ title: Dinamik Menü Nasıl Oluşturulur?
 
 *Bu örneği Visual Studio 2019 ve .NET Core 3.1 kullanılarak hazırladım. Veritabanı olarak MSSQL kullandım.*
 
-## Veritabanı menü tablosu dizaynı ve ilişkisi
+## Menü Tablosu Dizaynı ve İlişkisi
 ![Menü tablosu](../public/images/2020-07-21/iliski_tablo.JPG)
 
 ## Menü tablosundaki örnek veriler
-![Menü tablosu](../public/images/2020-07-21/veriler.JPG)
+![Menü tablosu](../public/images/2020-07-21/veriler.png)
 
-## Menü ViewModel'in oluşturulması
+## Menü ViewModel'in Oluşturulması
 ```csharp
 public class MenusVM
     {
@@ -27,9 +27,9 @@ public class MenusVM
         
     }
 ```
-## Controller tarafında Mapping Yapılması
+## Controller Tarafında Mapping Yapılması
 Index fonksiyonunda **InverseParent**'ı include ederek tüm alt menüleri de çekiyoruz. InverseParent özelliği menü tablomuzda ParentId' yi tablonun Id'si ile ilişkilendirdiğizde entity framework aracılığıyla oluşur.
-**Foreach** içine sadece ParentId' si **null** olanları alıyoruz. Diğerlerini recursive olarak alacağız. **InverseParent.Count>0** yani alt menü varsa alt menüleri de map ediyoruz.
+**Foreach** içine sadece ParentId' si **null** olanları alıyoruz. Diğerlerini recursive olarak alacağız. **InverseParent.Count > 0** yani alt menü varsa alt menüleri de map ediyoruz.
 ```csharp
 public class HomeController : Controller
 {
@@ -71,7 +71,7 @@ public class HomeController : Controller
 
 ```
 
-## Altmenüleri recursive olrak map'leme
+## Alt Menüleri Recursive Olarak Map'leme
 Burada alt menüleri eklemek için bir liste oluştuyoruz. Sonra bu listeyi yukarıdaki fonksiyondaki 
 **SubMenus**'e dönüyoruz.
 ```csharp
@@ -120,7 +120,7 @@ public class MenuHelper : TagHelper
         base.Process(context, output);
     }
 ```
-## Ana Menu Oluşturma Fonksiyonu
+## Ana Menü Oluşturma Fonksiyonu
 Controller tarafından ViewBag'a menü listemizden **ParentId** 'si **null** olanlar göndermiştik. 
 Bir tane **StringBuilder** tanımlıyoruz ve onu ortak olarak kullanıyoruz. Yani tüm html elemanları onun içinde olacak. **SubMenus.Count > 0** ise alt menüleri ekleme fonksiyonuna gidiyoruz.
 ```csharp
@@ -169,7 +169,7 @@ private void AddSubMenu(List<MenusVM> submenus, StringBuilder strBuilder)
     strBuilder.Append(CLOSE_UL);
 }
 ```
-## Html sayfasında MenuHelper'ın Çağırılması
+## Html Sayfasında MenuHelper'ın Çağırılması
 *_ViewImports.cshtml dosyasına **@addTagHelper *, DynamicMenus** diyerek projeyi import etmeyi unutmayın.*
 Index.cshtml sayfamızın içeriği aşağıdaki gibidir.
 
@@ -183,5 +183,86 @@ Index.cshtml sayfamızın içeriği aşağıdaki gibidir.
 
 ## Html Sayfamızın Çıktısı
 ![Menü tablosu](../public/images/2020-07-21/sonuc.JPG)
+
+## Bootstrap-3 Ekleme
+Tasarımı güzelleştirmek için bootstrap kütüphanesini kullandım. Bu <a href="https://bootsnipp.com/snippets/kM4Q" target="_blank">adresteki</a> multi-level menüden yararlandım.
+```csharp
+[HtmlTargetElement("TopMenu")]
+public class MenuHelper : TagHelper
+{
+    public List<MenusVM> Menus { get; set; }
+
+    public override void Process(TagHelperContext context, TagHelperOutput output)
+    {
+        output.Content.SetHtmlContent(CreateMenu());
+        base.Process(context, output);
+    }
+
+    private string CreateMenu()
+    {
+        var strBuilder = new StringBuilder();
+        strBuilder.Append("<nav class='navbar navbar-default'><div class='container-fluid'>");
+        strBuilder.Append("<div class='navbar-header'><a class='navbar-brand' href='#'>Dinamik Menü Örneği</a></div>");
+        strBuilder.Append("<ul class='nav navbar-nav'>");
+
+        foreach (var menu in Menus)
+        {
+            string target = menu.OpenAnotherTab ? "_blank" : "";
+            string icon = menu.Icon != null ? "<i class='" + menu.Icon + "'></i>" : string.Empty;
+            string href = menu.Href ?? "#";
+            
+            if (menu.SubMenus.Count > 0)
+            {
+                strBuilder.Append("<li class='dropdown'>");
+                strBuilder.Append("<a title='" + menu.Name + "' class='dropdown-toggle' data-toggle='dropdown'  href='#'> "+icon+ " " + menu.Name + " <span class='caret'><span></a>");
+
+                AddSubMenu(menu.SubMenus, strBuilder);
+            }
+            else 
+            { 
+                strBuilder.Append("<li>");
+                strBuilder.Append("<a title='" + menu.Name + "' target='" + target + "' href='" + href + "'>" + icon + " " + menu.Name + "</a>");
+            }
+            strBuilder.Append("</li>");
+        }
+        strBuilder.Append("</ul></div></nav>");
+        return strBuilder.ToString();
+    }
+
+    private void AddSubMenu(List<MenusVM> submenus, StringBuilder strBuilder)
+    {
+        strBuilder.Append("<ul class='dropdown-menu'>");
+        foreach (var submenu in submenus)
+        {
+            string target = submenu.OpenAnotherTab ? "_blank" : "";
+            string icon = submenu.Icon != null ? "<i class=" + submenu.Icon + "></i>" : string.Empty;
+            string href = submenu.Href ?? "#";
+
+            if (submenu.SubMenus.Count > 0)
+            {
+                strBuilder.Append("<li class='dropdown-submenu'>");
+                strBuilder.Append("<a title='" + submenu.Name + "'  href='#'>" + submenu.Name + "</a>");
+
+                AddSubMenu(submenu.SubMenus, strBuilder);
+            }  
+            else
+            {
+                strBuilder.Append("<li >");
+                strBuilder.Append("<a title='" + submenu.Name + "' target='" + target + "' href='" + href + "'>" + icon + " " + submenu.Name + "</a>");
+            }
+
+            strBuilder.Append("</li>");
+        }
+        strBuilder.Append("</ul>");
+    }
+}
+
+```
+## Html Sayfamızın Yeni Çıktısı
+![Menü tablosu](../public/images/2020-07-21/sonuc2.png)
+
+Kaynaklar: 
+<br/>
+*https://www.niceonecode.com/Blog/40/Generating-Multi-Level-Menu-through-Recursion-in-CSharp*
 
 ---
