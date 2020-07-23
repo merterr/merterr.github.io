@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Dinamik Menü Nasıl Oluşturulur?
+title: Veri Tabanı Kullanarak Dinamik Menü Oluşturma
 ---
 
 *Bu örneği Visual Studio 2019 ve .NET Core 3.1 kullanılarak hazırladım. Veritabanı olarak MSSQL kullandım.*
