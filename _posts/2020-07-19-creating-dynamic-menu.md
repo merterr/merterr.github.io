@@ -1,15 +1,16 @@
 ---
 layout: post
-title: Veri Tabanı Kullanarak Dinamik Menü Oluşturma
+title: Veri Tabanı Kullanarak Dinamik Menü Nasıl Oluşturulur? (ASP.NET Core 3.1)
+
 ---
 
-*Bu örneği Visual Studio 2019 ve .NET Core 3.1 kullanılarak hazırladım. Veritabanı olarak MSSQL kullandım.*
+*Bu örneği Visual Studio 2019 ve ASP.NET Core 3.1 kullanarak hazırladım. Veritabanı olarak MSSQL kullandım.*
 
-## Menü Tablosu Dizaynı ve İlişkisi
-![Menü tablosu](../public/images/2020-07-21/iliski_tablo.JPG)
+## Veritabanı menü tablosu dizaynı ve ilişkisi
+![Menü tablosu]({{ site.baseurl }}/public/images/2020-07-21/iliski_tablo.JPG)
 
 ## Menü tablosundaki örnek veriler
-![Menü tablosu](../public/images/2020-07-21/veriler.PNG)
+![Menü tablosu]({{site.baseurl}}/public/images/2020-07-21/veriler.PNG)
 
 ## Menü ViewModel'in Oluşturulması
 ```csharp
@@ -148,7 +149,7 @@ private string CreateMenu()
 ```
 
 ## Alt Menüleri Üst Menüye Ekleme Fonksiyonu
-Alt menünün de alt menüsü varsa bunları da **StringBuilder** eklemek için recursive olarak çalışıyor.
+Alt menünün de alt menüsü varsa bunları da **StringBuilder**'a eklemek için recursive olarak çalışıyor.
 ```csharp
 private void AddSubMenu(List<MenusVM> submenus, StringBuilder strBuilder)
 {
@@ -170,7 +171,7 @@ private void AddSubMenu(List<MenusVM> submenus, StringBuilder strBuilder)
 }
 ```
 ## Html Sayfasında MenuHelper'ın Çağırılması
-*_ViewImports.cshtml dosyasına **@addTagHelper *, DynamicMenus** diyerek projeyi import etmeyi unutmayın.*
+*_ViewImports.cshtml dosyasına **@addTagHelper *, OrnekProjeAdi** diyerek projeyi import etmeyi unutmayın.*
 Index.cshtml sayfamızın içeriği aşağıdaki gibidir.
 
 ```csharp
@@ -182,9 +183,10 @@ Index.cshtml sayfamızın içeriği aşağıdaki gibidir.
 ```
 
 ## Html Sayfamızın Çıktısı
-![Menü tablosu](../public/images/2020-07-21/sonuc.JPG)
+![Menü tablosu]({{site.baseurl}}/public/images/2020-07-21/sonuc.JPG)
 
-## Bootstrap-3 Ekleme
+
+## Menünün Bootstrap-3 CSS Kütüphanesiyle Tasarımı
 Tasarımı güzelleştirmek için bootstrap kütüphanesini kullandım. Bu <a href="https://bootsnipp.com/snippets/kM4Q" target="_blank">adresteki</a> multi-level menüden yararlandım.
 ```csharp
 [HtmlTargetElement("TopMenu")]
@@ -258,11 +260,11 @@ public class MenuHelper : TagHelper
 }
 
 ```
-## Html Sayfamızın Yeni Çıktısı
-![Menü tablosu](../public/images/2020-07-21/sonuc2.png)
+## Menünün Yeni Hali
+![Menü tablosu]({{site.baseurl}}/public/images/2020-07-21/sonuc2.png)
 
 Kaynaklar: 
 <br/>
 *https://www.niceonecode.com/Blog/40/Generating-Multi-Level-Menu-through-Recursion-in-CSharp*
 
----
+

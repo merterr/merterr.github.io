@@ -4,14 +4,14 @@ tagline:             "Bilgisayar Mühendisi"
 description:         "Yazılım yazalım yayalım! &#128521;"
 url:                 https://merterr.com
 baseurl:             ''
-paginate:            5
+paginate:            1
 permalink:           pretty
 
 # About/contact
 author:
   name:              Merter Gülbahar
   url:               https://twitter.com/m3rt3r
-  email:             mertergulbahar[at]gmail.com
+  email:             mertergulbahar [at] gmail.com
 
 #github contact
 github:
