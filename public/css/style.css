@@ -1,0 +1,38 @@
+.mg-right-menu-container{
+    position: fixed;
+    top: 130px;
+    right: calc(((100% - 760px)/2 - 300px)/2);
+    width: 300px;
+    background-color: #f9f9f9;
+    padding: 15px 15px 0px 15px;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+    font-size: 0.8rem;
+}
+
+ul.mg-right-menu{
+    padding: 0;
+}
+ul.mg-right-menu li{
+    list-style: none;
+    border-bottom: 1px solid silver;
+}
+ul.mg-right-menu li a{
+    color: black;
+    display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+}
+
+ul.mg-right-menu li a small{
+    color:silver;
+}
+.mg-right-menu-title{
+    border-bottom: 1px solid black;
+}
+
+@media screen and (max-width: 1360px) {
+    .mg-right-menu-container{
+        display: none;
+    }
+}
