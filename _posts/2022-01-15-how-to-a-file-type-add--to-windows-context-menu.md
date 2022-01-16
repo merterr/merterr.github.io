@@ -18,11 +18,11 @@ yoluna gidilir.
 
 *Mouse sağ tık -> Yeni -> Anahtar* denilerek ```Anahtar``` oluşturulur ve ismi ```ShellNew``` olarak değiştirilir.
 
-![Regedit3]({{site.baseurl}}/public/images/2022-01-15/3.PNG)
+![Regedit3]({{site.baseurl}}/public/images/2022-01-15/3.png)
 
 Bu anahtar seçili iken *Mouse sağ tık -> Yeni -> Dize Değeri* denilerek yeni bir ```Dize Değeri``` oluşturulur.
 
-![Regedit4]({{site.baseurl}}/public/images/2022-01-15/4.PNG)
+![Regedit4]({{site.baseurl}}/public/images/2022-01-15/4.png)
 
 Bu dizenin adı ```NullFile``` olarak değiştirilir ve ```Veri``` alanı boş bırakılır ve çıkış yapılır.
 
@@ -30,4 +30,4 @@ Bu dizenin adı ```NullFile``` olarak değiştirilir ve ```Veri``` alanı boş b
 
 Ve Final...
 
-![Regedit6]({{site.baseurl}}/public/images/2022-01-15/6.PNG)
+![Regedit6]({{site.baseurl}}/public/images/2022-01-15/6.png)
