@@ -41,7 +41,21 @@
     </div>
 
     <label for="sidebar-checkbox" class="sidebar-toggle"></label>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src='{{ site.baseurl }}/public/js/script.js'></script>
+    <script>
+      $(function(){
+        $(window).scroll(function (event) {
+            var scrollY = $(window).scrollTop();
+            var rightMenu = $(".mg-right-menu-container");
+            if(scrollY > 70){
+              rightMenu.css({"top":"0px","transition":"1s"});
+            }else{
+              rightMenu.css("top","");
+            }
+        });
+      });
+     
+    </script>
   </body>
 </html>
