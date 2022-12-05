@@ -30,6 +30,13 @@ ul.mg-right-menu li a small{
 .mg-right-menu-title{
     border-bottom: 1px solid black;
 }
+.result{
+    border-radius:3px;
+    font-size: 85%;
+    padding: 0.25em 0.5em;
+    background-color :#000;
+    color:#bf616a;
+}
 
 @media screen and (max-width: 1360px) {
     .mg-right-menu-container{
