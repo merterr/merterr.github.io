@@ -13,7 +13,7 @@ order : 2
   - C#
   - ASP.NET
   - PHP
-  - Laravel | CodeIgniter
+  - Laravel, CodeIgniter
   - Python
   - PostgreSQL
   - MSSQL
@@ -24,7 +24,7 @@ order : 2
 - DevOps
   - Docker
   - Portainer
-  - Bitbucket, Github - (Git) | TFS
+  - Bitbucket, Github - (Git), TFS
   - Jira
   - Confluence 
   - Bamboo (CI/CD)
@@ -38,7 +38,7 @@ order : 2
   - jQuery
   - SCSS
   - CSS3
-  - HTML5 | XHTML 
+  - HTML5, XHTML 
 
 ## Diğer İlgi Analanlarım ##
 
