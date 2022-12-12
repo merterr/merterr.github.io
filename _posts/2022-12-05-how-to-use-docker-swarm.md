@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Docker Swarm (Container Orchestration Tool) Nasıl Kullanılır?
+main_image : {{site.baseurl}}/public/images/2022-12-05/connect-vm-check.PNG
 
 ---
 
