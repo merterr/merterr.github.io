@@ -5,14 +5,50 @@ order : 2
 ---
 
 <p class="message">
-  Merhaba, ben Merter Gülbahar. Bilgisayar mühendisiyim. Genel olarak web teknolojileri ile uğraşıyorum. Daha çok ASP.NET Core ile yazılım geliştiriyorum. Ek olarak python dili ile de ilgiliyim.
-  Bu blog'da bazen yazılım ile bazen hayatla ilgili bazı bilgiler paylaşıyor olacağım. 
+  Merhaba, ben Merter Gülbahar. Bilgisayar mühendisiyim. Genel olarak web teknolojileri ile uğraşıyorum.
 </p>
 
-Küçüklüğümden beri bir şeyler üretmeyi ve bir şeyleri tamir etmeyi seviyorum. Yapmaktan hoşlandığım şeylerden bazıları yemek yapmak, bitki yetiştimek, hayvan beslemek... Ayrıca düzenli spor yaparım.
+## Kullandığım yazılım teknolojileri ve dilleri ##
+- Back End
+  - C#
+  - ASP.NET
+  - PHP
+  - Laravel | CodeIgniter
+  - Python
+  - PostgreSQL
+  - MSSQL
+  - MySQL
+  - MongoDB
+  - Redis
+
+- DevOps
+  - Docker
+  - Portainer
+  - Bitbucket, Github - (Git) | TFS
+  - Jira
+  - Confluence 
+  - Bamboo (CI/CD)
+  - Graylog 
+
+- Front End
+  - Angular
+  - TypeScript
+  - Ajax
+  - JavaScript
+  - jQuery
+  - SCSS
+  - CSS3
+  - HTML5 | XHTML 
+
+## Diğer İlgi Analanlarım ##
+
+Küçüklüğümden beri bir şeyler üretmeyi ve bir şeyleri tamir etmeyi seviyorum. Yapmaktan hoşlandığım şeylerden bazıları elektronik cihazları sökmek, yemek yapmak, bitki yetiştirmek... Bir ara Arduino ile uğraştım. Bluetooth kontrollü mobil app ile yönetilen bir araba yaptım. 
+
+Düzenli spor yaparım.
 Spor yapmayı hobi olarak dahi görmüyorum. Benim için bir ihtiyaç.
 Hareket etmek ve o hareketin vücuda yaptığı etkileri bilmek insanı sporda daha biliçli yapıyor ve motive ediyor.
-Son olarak da anatomi, teknoloji ve blog yazma :) ile ilgileniyorum.
+
+Genel olarak anatomi, teknoloji ve blog yazma :) ile ilgileniyorum.
 
 ---
 ## Site Hakkında
