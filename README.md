@@ -1,1 +1,1 @@
-# Kişisel Blog
+# Kişisel Web Bloğu
