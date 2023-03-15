@@ -247,6 +247,9 @@ Container'ı Ayapa Kaldırma
 `docker run -dit  -e ENVIRONMENT=prod -e TZ=Europe/Istanbul -p 80:80 --name=cont_prod --restart=always deneme-image:latest`
 
 
+---
+Kaynaklar:
 
-
+_https://itnext.io/how-does-app-initializer-work-so-what-do-you-need-to-know-about-dynamic-configuration-in-angular-718e7c345971_
+_https://gabrielemilan.dev/publish-same-docker-image-with-angular-application-to-any-environments-edbfc454c6bb_
 
