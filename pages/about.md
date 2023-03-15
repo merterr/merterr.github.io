@@ -5,8 +5,9 @@ order : 2
 ---
 
 <p class="message">
-  Merhaba, ben Merter Gülbahar. Bilgisayar mühendisiyim. Genel olarak web teknolojileri ile uğraşıyorum.
+  Merhaba, ben Merter Gülbahar.  Bilgisayar mühendisiyim.  Genel olarak web teknolojileri ile uğraşıyorum.
 </p>
+
 
 ## Kullandığım yazılım teknolojileri ve dilleri ##
 - Back End
@@ -26,9 +27,9 @@ order : 2
   - Portainer
   - Bitbucket, Github - (Git), TFS
   - Jira
-  - Confluence 
+  - Confluence
   - Bamboo (CI/CD)
-  - Graylog 
+  - Graylog
 
 - Front End
   - Angular
@@ -38,11 +39,17 @@ order : 2
   - jQuery
   - SCSS
   - CSS3
-  - HTML5, XHTML 
+  - HTML5, XHTML
 
-## Diğer İlgi Analanlarım ##
 
-Küçüklüğümden beri bir şeyler üretmeyi ve bir şeyleri tamir etmeyi seviyorum. Yapmaktan hoşlandığım şeylerden bazıları elektronik cihazları sökmek, yemek yapmak, bitki yetiştirmek... Bir ara Arduino ile uğraştım. Bluetooth kontrollü mobil app ile yönetilen bir araba yaptım. 
+## Eğitim
+  - Gazi Üni. T.F. - Bilgisayar Mühendisliği (YL - halen)
+  - NKÜ Ç.M.F. - Bilgisayar Mühendisliği (Lisans - 2017)
+
+
+## Diğer İlgi Alanlarım ##
+
+Küçüklüğümden beri bir şeyler üretmeyi ve bir şeyleri tamir etmeyi seviyorum. Yapmaktan hoşlandığım şeylerden bazıları elektronik cihazları sökmek, yemek yapmak, bitki yetiştirmek... Bir ara Arduino ile uğraştım. Bluetooth kontrollü mobil app ile yönetilen bir araba yaptım.
 
 Düzenli spor yaparım.
 Spor yapmayı hobi olarak dahi görmüyorum. Benim için bir ihtiyaç.
