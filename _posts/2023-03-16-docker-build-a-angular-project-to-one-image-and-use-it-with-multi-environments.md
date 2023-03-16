@@ -24,7 +24,7 @@ isimlerinde json dosyalarını oluşturalım.
 }
 ```
 
-`env.prod.json` dosyasının içine config'leri yazalım. Örneğin;
+`env.prod.json` dosyasının içine config'lerimizi yazalım. Örneğin;
 
 ```json
 
