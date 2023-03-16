@@ -172,7 +172,7 @@ package.json dosyasını açalım. Build için bir config tanımlayalım. _test_
 
 ```json
 ...
-scripts:{
+"scripts":{
   ...
   "build_prod": "ng build --configuration prod --outputPath=dist/angular --namedChunks=false --aot --output-hashing=all --sourceMap=false",
   ...
@@ -205,7 +205,7 @@ Angular tarafında işimiz bitti.
 Angular projesindeki ana dizinde (Dockerfile'ın bulunduğu) `entrypoint.sh` bir dosya oluşturalım.
 Bu dosyanın içine aşağıdaki komutları ekleyelim.
 
-```sh
+```
 chmod +x /entrypoint.sh
 chmod -R 755 /usr/share/nginx/html/
 chown -R nginx:nginx /usr/share/nginx/html/
@@ -237,13 +237,13 @@ CMD ["sh", "/entrypoint.sh"]
 
 Image Oluşturma
 
-`docker image -t deneme-image:latest .`
+`$ docker image -t deneme-image:latest .`
 
 Container'ı Ayapa Kaldırma
 
-`docker run -dit  -e ENVIRONMENT=test -e TZ=Europe/Istanbul -p 80:80 --name=cont_test --restart=always deneme-image:latest`
+`$ docker run -dit  -e ENVIRONMENT=test -e TZ=Europe/Istanbul -p 80:80 --name=cont_test --restart=always deneme-image:latest`
 
-`docker run -dit  -e ENVIRONMENT=prod -e TZ=Europe/Istanbul -p 80:80 --name=cont_prod --restart=always deneme-image:latest`
+`$ docker run -dit  -e ENVIRONMENT=prod -e TZ=Europe/Istanbul -p 80:80 --name=cont_prod --restart=always deneme-image:latest`
 
 
 ---
