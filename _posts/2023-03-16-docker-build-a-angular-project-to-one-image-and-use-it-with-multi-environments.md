@@ -4,6 +4,8 @@ title: Docker Build ile Bir Angular Projesini Tek Docker Image'a Dönüştürüp
 
 ---
 
+Bir angular projesinin docker ile image'ını bir kere oluşturup, birden fazla ortamda nasıl çalıştırabileceğimizi göreceğiz. 
+
 ## 1. Adım
 ### Environment Dosyaları değiştirme
 Angular projenizdeki `src/assets/` yoluna gidelim.
