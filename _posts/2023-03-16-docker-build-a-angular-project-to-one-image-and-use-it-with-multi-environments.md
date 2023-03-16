@@ -212,7 +212,6 @@ cp /usr/share/nginx/html/assets/environments/env.${ENVIRONMENT}.json /usr/share/
 Daha sonra Dockerfile'ı açalım. Ve aşağıdaki kodları dosyamıza ekleyelim.
 
 ```Dockerfile
-...
 FROM node:10-alpine as build-step
 RUN mkdir -p /app
 WORKDIR /app
