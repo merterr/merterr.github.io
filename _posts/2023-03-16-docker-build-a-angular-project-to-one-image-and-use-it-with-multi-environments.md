@@ -4,10 +4,8 @@ title: Docker Build ile Bir Angular Projesini Tek Docker Image'a Dönüştürüp
 
 ---
 
-
-# Environment Dosyaları değiştirme
-
 ## 1. Adım
+### # Environment Dosyaları değiştirme
 Angular projenizdeki `src/assets/` yoluna gidelim.
 Burada `environments` isimli bir klasör oluşturalım. Bu klasörün içine `env.json`, `env.prod.json`, `env.test.json`
 isimlerinde json dosyalarını oluşturalım.
