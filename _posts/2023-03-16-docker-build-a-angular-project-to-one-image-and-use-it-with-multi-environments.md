@@ -187,7 +187,7 @@ main.ts dosyasını açın ve aşağıdaki şekilde güncelleyelim. Proje başla
 
 ```js
 
-fetch('assets/environments/env.json').then(response => {
+fetch('./assets/environments/env.json').then(response => {
   return response.json();
 }).then(data => {
   if (data.production) {
@@ -205,10 +205,7 @@ Angular projesindeki ana dizinde (Dockerfile'ın bulunduğu) `entrypoint.sh` bir
 Bu dosyanın içine aşağıdaki komutları ekleyelim.
 
 ```
-chmod +x /entrypoint.sh
-chmod -R 755 /usr/share/nginx/html/
-chown -R nginx:nginx /usr/share/nginx/html/
-cp /usr/share/nginx/html/assets/appsettings/env.${ENVIRONMENT}.json /usr/share/nginx/html/assets/appsettings/env.json
+cp /usr/share/nginx/html/assets/environments/env.${ENVIRONMENT}.json /usr/share/nginx/html/assets/environments/env.json
 /usr/sbin/nginx -g "daemon off;"
 ```
 
@@ -228,6 +225,10 @@ FROM nginx:stable
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=build-step /app/dist/angular /usr/share/nginx/html
 COPY ["entrypoint.sh", "/entrypoint.sh"]
+RUN chmod +x /entrypoint.sh
+RUN chmod -R 755 /usr/share/nginx/html/
+RUN chown -R nginx:nginx /usr/share/nginx/html/
+
 CMD ["sh", "/entrypoint.sh"]
 ```
 
