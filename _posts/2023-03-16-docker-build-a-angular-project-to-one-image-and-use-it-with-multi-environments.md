@@ -237,13 +237,19 @@ CMD ["sh", "/entrypoint.sh"]
 
 Image Oluşturma
 
-`$ docker image -t deneme-image:latest .`
+```
+$ docker image -t deneme-image:latest .
+```
 
 Container'ı Ayapa Kaldırma
 
-`$ docker run -dit  -e ENVIRONMENT=test -e TZ=Europe/Istanbul -p 80:80 --name=cont_test --restart=always deneme-image:latest`
+```
+$ docker run -dit  -e ENVIRONMENT=test -e TZ=Europe/Istanbul -p 80:80 --name=cont_test --restart=always deneme-image:latest
+```
 
-`$ docker run -dit  -e ENVIRONMENT=prod -e TZ=Europe/Istanbul -p 80:80 --name=cont_prod --restart=always deneme-image:latest`
+```
+$ docker run -dit  -e ENVIRONMENT=prod -e TZ=Europe/Istanbul -p 80:80 --name=cont_prod --restart=always deneme-image:latest
+```
 
 
 ---
