@@ -134,7 +134,6 @@ export class BaseService {
 ```
 
 ## 2. Adım
-
 `angular.json` dosyasını açalım. `build`'in altındaki  `configurations` kısmını aşağıdaki şekilde güncelleyelim.
 
 ```json
@@ -182,7 +181,6 @@ package.json dosyasını açalım. Build için bir config tanımlayalım. _test_
 ```
 
 ## 4. Adım
-
 main.ts dosyasını açın ve aşağıdaki şekilde güncelleyelim. Proje başlatılırken docker run ile geçeceğimiz _test_ yada _prod_ environment'ına göre bu dosyalardan birinin içeriğini env.json dosyasına kopyalanacak ve dosya içeriği okunacaktır.
 
 ```js
@@ -201,7 +199,6 @@ fetch('assets/environments/env.json').then(response => {
 Angular tarafında işimiz bitti.
 
 ## 5. Adım
-
 Angular projesindeki ana dizinde (Dockerfile'ın bulunduğu) `entrypoint.sh` bir dosya oluşturalım.
 Bu dosyanın içine aşağıdaki komutları ekleyelim.
 
