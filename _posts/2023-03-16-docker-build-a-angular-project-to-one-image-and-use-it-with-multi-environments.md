@@ -49,7 +49,7 @@ export type ConfigModel = {
 
 ```
 
-configuration-loader.ts isminde bir dosya oluşturalım. Dosya içeriği aşağıdaki gibidir. Aşağıdaki kodlarla env.json dosyasındaki config'ler elde edilir.
+`configuration-loader.ts` isminde bir dosya oluşturalım. Dosya içeriği aşağıdaki gibidir. Aşağıdaki kodlarla `env.json` dosyasındaki config'ler elde edilir.
 ```ts
 import {Injectable} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -84,7 +84,7 @@ export class ConfigurationLoader {
 }
 
 ```
-Daha sonra `app.module.ts` isimli dosyayı bulun. Aşağıdaki kodları bu dosyaya ekleyelim. Modül başlatılırken env.json dosyası okunacaktır ve config'ler hazır hale gelecektir.
+Daha sonra `app.module.ts` isimli dosyayı bulalım. Aşağıdaki kodları bu dosyaya ekleyelim. Modül başlatılırken env.json dosyası okunacaktır ve config'ler hazır hale gelecektir.
 
 ```ts
 import {ConfigurationLoader} from "./service/configuration-loader";
@@ -135,7 +135,7 @@ export class BaseService {
 
 ## 2. Adım
 
-`angular.json` dosyasını açın. `build`'in altındaki  `configurations` kısmını aşağıdaki şekilde güncelleyelim.
+`angular.json` dosyasını açalım. `build`'in altındaki  `configurations` kısmını aşağıdaki şekilde güncelleyelim.
 
 ```json
 ...
@@ -168,7 +168,7 @@ export class BaseService {
 ```
 ## 3. Adım
 
-package.json dosyasını açalım. Build için bir config tanımlayalım. _test_ veya _prod_ olarak environment kullanacak olsak dahi _prod_ için build alabiliriz. Config dosyasını proje başlatılırken zaten değiştireceğiz. Burada amaç `angular.json` 'da prod için belirtilen diğer configleri projemize uygulamak. `angular.json` dosyasına _test_ ve _prod_ için ortak config'de yazılabilir. O config'i de build alırken geçebilirdik.
+package.json dosyasını açalım. Build için bir config tanımlayalım. _test_ veya _prod_ olarak environment kullanacak olsak dahi _prod_ için build alabiliriz. Config dosyasını proje başlatılırken zaten değiştireceğiz. Burada amaç `angular.json` 'da prod için belirtilen diğer configleri projemize uygulamak. `angular.json` dosyasına _test_ ve _prod_ için ortak bir config de yazılabilirdik. Daha sonra o config'i build alırken parametre olarak geçebilirdik.
 
 ```json
 ...
