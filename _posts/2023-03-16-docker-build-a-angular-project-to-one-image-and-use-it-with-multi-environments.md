@@ -201,7 +201,7 @@ fetch('./assets/environments/env.json').then(response => {
 Angular tarafında işimiz bitti.
 
 ## 5. Adım
-Angular projesindeki ana dizinde (Dockerfile'ın bulunduğu) `entrypoint.sh` bir dosya oluşturalım.
+Angular projesindeki ana dizinde (Dockerfile'ın bulunduğu) `entrypoint.sh` isminde bir dosya oluşturalım.
 Bu dosyanın içine aşağıdaki komutları ekleyelim.
 
 ```
