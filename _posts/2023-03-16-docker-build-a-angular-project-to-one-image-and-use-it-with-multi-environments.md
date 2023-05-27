@@ -4,9 +4,10 @@ title: Docker Build ile Bir Angular Projesini Tek Docker Image'a Dönüştürüp
 
 ---
 
-# Environment Dosyaları değiştirme
+Bir angular projesinin docker ile image'ını bir kere oluşturup, birden fazla ortamda nasıl çalıştırabileceğimizi göreceğiz. 
 
 ## 1. Adım
+### Environment Dosyaları değiştirme
 Angular projenizdeki `src/assets/` yoluna gidelim.
 Burada `environments` isimli bir klasör oluşturalım. Bu klasörün içine `env.json`, `env.prod.json`, `env.test.json`
 isimlerinde json dosyalarını oluşturalım.
@@ -23,7 +24,7 @@ isimlerinde json dosyalarını oluşturalım.
 }
 ```
 
-`env.prod.json` dosyasının içine config'leri yazalım. Örneğin;
+`env.prod.json` dosyasının içine config'lerimizi yazalım. Örneğin;
 
 ```json
 
@@ -50,7 +51,7 @@ export type ConfigModel = {
 
 ```
 
-configuration-loader.ts isminde bir dosya oluşturalım. Dosya içeriği aşağıdaki gibidir. Aşağıdaki kodlarla env.json dosyasındaki config'ler elde edilir.
+`configuration-loader.ts` isminde bir dosya oluşturalım. Dosya içeriği aşağıdaki gibidir. Aşağıdaki kodlarla `env.json` dosyasındaki config'ler elde edilir.
 ```ts
 import {Injectable} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -85,7 +86,7 @@ export class ConfigurationLoader {
 }
 
 ```
-Daha sonra `app.module.ts` isimli dosyayı bulun. Aşağıdaki kodları bu dosyaya ekleyelim. Modül başlatılırken env.json dosyası okunacaktır ve config'ler hazır hale gelecektir.
+Daha sonra `app.module.ts` isimli dosyayı bulalım. Aşağıdaki kodları bu dosyaya ekleyelim. Modül başlatılırken env.json dosyası okunacaktır ve config'ler hazır hale gelecektir.
 
 ```ts
 import {ConfigurationLoader} from "./service/configuration-loader";
@@ -135,8 +136,7 @@ export class BaseService {
 ```
 
 ## 2. Adım
-
-`angular.json` dosyasını açın. `build`'in altındaki  `configurations` kısmını aşağıdaki şekilde güncelleyelim.
+`angular.json` dosyasını açalım. `build`'in altındaki  `configurations` kısmını aşağıdaki şekilde güncelleyelim.
 
 ```json
 ...
@@ -169,11 +169,11 @@ export class BaseService {
 ```
 ## 3. Adım
 
-package.json dosyasını açalım. Build için bir config tanımlayalım. _test_ veya _prod_ olarak environment kullanacak olsak dahi _prod_ için build alabiliriz. Config dosyasını proje başlatılırken zaten değiştireceğiz. Burada amaç `angular.json` 'da prod için belirtilen diğer configleri projemize uygulamak. `angular.json` dosyasına _test_ ve _prod_ için ortak config'de yazılabilir. O config'i de build alırken geçebilirdik.
+package.json dosyasını açalım. Build için bir config tanımlayalım. _test_ veya _prod_ olarak environment kullanacak olsak dahi _prod_ için build alabiliriz. Config dosyasını proje başlatılırken zaten değiştireceğiz. Burada amaç `angular.json` 'da prod için belirtilen diğer configleri projemize uygulamak. `angular.json` dosyasına _test_ ve _prod_ için ortak bir config de yazılabilirdik. Daha sonra o config'i build alırken parametre olarak geçebilirdik.
 
 ```json
 ...
-scripts:{
+"scripts":{
   ...
   "build_prod": "ng build --configuration prod --outputPath=dist/angular --namedChunks=false --aot --output-hashing=all --sourceMap=false",
   ...
@@ -183,12 +183,11 @@ scripts:{
 ```
 
 ## 4. Adım
-
 main.ts dosyasını açın ve aşağıdaki şekilde güncelleyelim. Proje başlatılırken docker run ile geçeceğimiz _test_ yada _prod_ environment'ına göre bu dosyalardan birinin içeriğini env.json dosyasına kopyalanacak ve dosya içeriği okunacaktır.
 
 ```js
 
-fetch('assets/environments/env.json').then(response => {
+fetch('./assets/environments/env.json').then(response => {
   return response.json();
 }).then(data => {
   if (data.production) {
@@ -202,22 +201,17 @@ fetch('assets/environments/env.json').then(response => {
 Angular tarafında işimiz bitti.
 
 ## 5. Adım
-
-Angular projesindeki ana dizinde (Dockerfile'ın bulunduğu) `entrypoint.sh` bir dosya oluşturalım.
+Angular projesindeki ana dizinde (Dockerfile'ın bulunduğu) `entrypoint.sh` isminde bir dosya oluşturalım.
 Bu dosyanın içine aşağıdaki komutları ekleyelim.
 
-```sh
-chmod +x /entrypoint.sh
-chmod -R 755 /usr/share/nginx/html/
-chown -R nginx:nginx /usr/share/nginx/html/
-cp /usr/share/nginx/html/assets/appsettings/env.${ENVIRONMENT}.json /usr/share/nginx/html/assets/appsettings/env.json
+```
+cp /usr/share/nginx/html/assets/environments/env.${ENVIRONMENT}.json /usr/share/nginx/html/assets/environments/env.json
 /usr/sbin/nginx -g "daemon off;"
 ```
 
 Daha sonra Dockerfile'ı açalım. Ve aşağıdaki kodları dosyamıza ekleyelim.
 
 ```Dockerfile
-...
 FROM node:10-alpine as build-step
 RUN mkdir -p /app
 WORKDIR /app
@@ -230,6 +224,10 @@ FROM nginx:stable
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=build-step /app/dist/angular /usr/share/nginx/html
 COPY ["entrypoint.sh", "/entrypoint.sh"]
+RUN chmod +x /entrypoint.sh
+RUN chmod -R 755 /usr/share/nginx/html/
+RUN chown -R nginx:nginx /usr/share/nginx/html/
+
 CMD ["sh", "/entrypoint.sh"]
 ```
 
@@ -238,13 +236,19 @@ CMD ["sh", "/entrypoint.sh"]
 
 Image Oluşturma
 
-`docker image -t deneme-image:latest .`
+```
+$ docker image -t deneme-image:latest .
+```
 
-Container'ı Ayapa Kaldırma
+Container'ı Ayağa Kaldırma
 
-`docker run -dit  -e ENVIRONMENT=test -e TZ=Europe/Istanbul -p 80:80 --name=cont_test --restart=always deneme-image:latest`
+```
+$ docker run -dit  -e ENVIRONMENT=test -e TZ=Europe/Istanbul -p 80:80 --name=cont_test --restart=always deneme-image:latest
+```
 
-`docker run -dit  -e ENVIRONMENT=prod -e TZ=Europe/Istanbul -p 80:80 --name=cont_prod --restart=always deneme-image:latest`
+```
+$ docker run -dit  -e ENVIRONMENT=prod -e TZ=Europe/Istanbul -p 80:80 --name=cont_prod --restart=always deneme-image:latest
+```
 
 
 ---
