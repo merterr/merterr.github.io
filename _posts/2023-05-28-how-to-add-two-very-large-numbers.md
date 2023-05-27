@@ -1,6 +1,6 @@
 ---
 layout: post
-title: İki Çok Büyük Sayı Nasıl Toplanır?
+title: C# İle İki Çok Büyük Sayı Nasıl Toplanır?
 
 ---
 
