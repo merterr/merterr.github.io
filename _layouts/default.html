@@ -26,7 +26,7 @@
           {% if site.posts.size >= 1 %}
           <h4 class="mg-right-menu-title"><b>Son Yazılar</b></h4>
           <ul class="mg-right-menu">
-            {% for post in site.posts limit:3 %}
+            {% for post in site.posts %}
             <li><a title="{{ post.title }}" href="{{ site.baseurl }}{{ post.url }}">
               {{ post.title }}
             </a>
