@@ -1,25 +1,27 @@
 ---
 layout: post
-title: C# İle İki Çok Büyük Sayı Nasıl Toplanır?
+title: C# İle Çok Büyük İki Sayı Nasıl Toplanır?
 
 ---
 
 C# ile decimal tipindeki en büyük sayıyı ekrana yazdıralım.
-`Console.WriteLine(decimal.MaxValue)` kodu bize *79228162514264337593543950335* çıktısını verir.
+`Console.WriteLine(decimal.MaxValue);` kodu bize *"79228162514264337593543950335"* çıktısını verir.
 
 Peki bu sayıyı kendisi ile toplayıp ekrana yazdırmaya çalışalım.
 
-`Console.WriteLine(79228162514264337593543950335 + 79228162514264337593543950335);` kodu bize *Overflow in constant value computation* uyarısı verir.
+`Console.WriteLine(79228162514264337593543950335 + 79228162514264337593543950335);` kodu bize *"Overflow in constant value computation"* uyarısı verir.
 
 Peki sayıyı kendisi ile nasıl toplayabilir?
-Cevap şöyle olabilir;
-Elimizde iki sayı olsun. Bu sayıları string olarak ele alıp döngüye sokarak kağıt kalem ile ilkokulda yaptığımız gibi toplayacağız.
 
-C# ile yapılan örneğimiz aşağıdaki gibidir. 
+Cevap şöyle olabilir;
+
+Elimizde iki çok büyük sayı olsun. Bu sayıları string'e dönüştürüp döngüye sokarak kağıt kalem ile ilkokulda yaptığımız gibi toplayabiliriz.
+
+Bu senaryonun C# kodunu yazmaya başlayalım.
 
 Sayılardan birinin uzunluğunun diğerinden küçük olmasını engellemek için bir fonksiyon yazalım.
 
-```C#
+```csharp
 private static string ResizeShortNumber(int length, string number)
         {
             var sb = new StringBuilder();
@@ -32,7 +34,7 @@ private static string ResizeShortNumber(int length, string number)
 
 Dışardan iki sayıyı *string* olarak alalım ve toplama işlemini gerçekleştirelim.
 
-```C#
+```csharp
 private static string AddTwoVeryLargeNumbers(string number1, string number2)
         {
             int length;
@@ -77,17 +79,23 @@ private static string AddTwoVeryLargeNumbers(string number1, string number2)
 ```
 
 Toplamı ekrana yazdıralım.
-```C#
+```csharp
 namespace Test
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("sum: {0}", AddTwoVeryLargeNumbers(decimal.MaxValue.ToString(), decimal.MaxValue.ToString()));
-            // sum: 158456325028528675187087900670
+            Console.WriteLine("sum: {0}", 
+                AddTwoVeryLargeNumbers(
+                    decimal.MaxValue.ToString(),
+                    decimal.MaxValue.ToString()
+                )
+            ); // sum: 158456325028528675187087900670
+            
         }
     }
 }
 ```
 
+İyi Çalışmalar!
