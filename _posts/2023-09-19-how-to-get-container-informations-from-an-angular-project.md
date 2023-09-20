@@ -1,4 +1,9 @@
-# Docker Container'da Çalışan Bir Angular Uygulamasından Container Bilgilerine Erişmek
+---
+layout: post
+title: Docker Container'da Çalışan Bir Angular Uygulamasından Container Bilgilerine Erişmek
+image: /public/images/2023-09-20/hostname_and_os_name.jpg
+
+---
 
 ## Problem ##
 
@@ -8,7 +13,6 @@ Bu durumda, container'ın bilgilerine erişmemiz gerekir. Backend uygulamaları 
 Peki frontend tarafında bu işi nasıl yaparız? 
 
 ## Senaryo ##
-
 1. Uygulamayı bir linux dağıtımı üzerine inşa edilmiş bir nginx docker image'ı üzerinden sunacağız.
 2. Uygulama ayağa kalkmadan önce linux komutları ile container bilgilerine erişeceğiz.
 3. Bu bilgileri bir .txt uzantılı dosyaya yazacağız. 
@@ -16,9 +20,7 @@ Peki frontend tarafında bu işi nasıl yaparız?
 
 
 ## Çözüm ##
-
 ### Angular Frontend Uygulaması ###
-
   1. Uygulamadan **src/assets/** yoluna gidelim ve burada **hostname.txt** isimli dosya oluşturalım.
   2. Aşağıdaki gibi _**HostNameService**_ isimli bir service oluşturalım.
 
