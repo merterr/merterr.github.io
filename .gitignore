@@ -41,3 +41,6 @@ validation-report.json
 # Folders to ignore
 node_modules
 bower_components
+
+yapilacaklar-fikirler.txt
+_posts/javascript-async.md
