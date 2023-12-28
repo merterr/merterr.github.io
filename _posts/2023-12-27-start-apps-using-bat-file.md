@@ -116,7 +116,7 @@ start C:\"Program Files"\JetBrains\"WebStorm 2021.1.3"\bin\webstorm64.exe D:\pro
 __Açıklama:__
 
 `C:\PROGRA~1` "C:\Program Files" yolunu temsil eder. Bu şekilde de kullanılablir. Boşluklu klasör adı veya yolu varsa çift tırnak ("") kullanılmalıdır.
-Programlar `the sytem environment variables -> Path`' a ekli ise dirext .exe olarak da çalışır aksi halde tüm yol girilmelir.
+Programlar `the sytem environment variables -> Path`' a ekli ise direkt .exe olarak da çalışır (`start datagrip64.exe` gibi)' aksi halde tüm yol girilmelir.
 
 ... ve son olarak start_apps.bat dosyasını çalıştıralım.
 
