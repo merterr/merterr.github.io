@@ -1,29 +1,44 @@
-# Windows'ta Batch Script Dosyası (.bat) Kullanarak Toplu İş Yapmak
+---
+layout: post
+title: Windows'ta Batch Script Dosyası (.bat) Kullanarak Toplu İş Yapmak
+
+---
+
 
 .bat dosyasında kullanılan komutlar batch script olarak geçer.
 Önce işimize yarar birkaç komut görelim ve bunları komut satırında deneyelim.
 
 ## Klasör İşlemleri
 ### Klasör Oluşturmak
-`mkdir test-klasoru`
+```cmd
+$ mkdir test-klasoru
+```
 
 ### Birden Fazla Klasör Oluşturmak
-`mkdir test-klasoru-1 test-klasoru-2`
+```cmd
+$ mkdir test-klasoru-1 test-klasoru-2
+```
 
 ### Klasör Silmek
-`rmdir test-klasoru-1`
+```cmd
+$ rmdir test-klasoru-1
+```
 
 ### Birden Fazla Klasör Silmek
-`rmdir test-klasoru-1 test-klasoru-2`
+```cmd
+$ rmdir test-klasoru-1 test-klasoru-2
+```
 
 
 ### Klasörü Yeni Pencerede Açmak
+```cmd
+$ start klasör_yolu
+```
 
-`start klasör_yolu`
-
-*C klasörünü açmak*
-
-`start c:\`
+ör: C klasörünü açmak
+```cmd
+$ start c:\
+```
 
 ## Dosya İşlemleri
 
@@ -31,48 +46,62 @@
 
 Boş dosya oluşturmak
 
-`type nul > test-klasoru/test.bat`
-
+```cmd
+$ type nul > test-klasoru/test.bat
+```
 Dosyaya veri eklemek
 
 **(>)** işareti var olan veriyi silip sıfırdan ekleme yapar.
 
-`echo metin_icerigi > test-klasoru/test.bat`
+```cmd
+$ echo metin_icerigi > test-klasoru/test.bat
+```
 
 **(>>)** işareti var olan verinin üzerine ekleme yapar.
 
-`echo metin_icerigi_1 >> test-klasoru/test.bat`
+```cmd
+$ echo metin_icerigi_1 >> test-klasoru/test.bat
+```
 
 ### Dosyayı Silmek
+```cmd
+$ del test-klasoru/test.bat
+```
 
-`del test-klasoru/test.bat`
 
 ### Bir dosyayı Açmak
-ör: notepad++ ile *start-apps.bat* dosyasını açmak
-
-`start notepad++.exe start-apps.bat`
-
+ör: notepad++ ile `start_apps.bat` dosyasını açmak
+```cmd
+$ start notepad++.exe start_apps.bat
+```
 
 ör: Visual Studio 2022 ile klasör açmak
-
-`start devenv.exe dotnet-core-excel-helper`
+```cmd
+$ start devenv.exe dotnet-core-excel-helper
+```
 
 ör: Visual Studio 2022 ile .net projesi açmak
-
-`start devenv.exe dotnet-core-excel-helper/ExcelHelperProject.sln`
+```cmd
+$ start devenv.exe dotnet-core-excel-helper/ExcelHelperProject.sln
+```
 
 ör: WebStorm ile proje klasörü açmak
+```cmd
+$ start webstorm64.exe angular15-sample-project
+```
 
-`webstorm64.exe angular15-sample-project`
 
-## Bat Dosyası Oluşturma
-Bu ön bilgilerden sonra start-apps.bat adında bir bat dosyası oluşturalım. Amacımız bilgisayarımız açıldığında bat dosyamızı çalıştırarak isteğimiz birçok programı tek seferde açmak.
+## Batch Script Dosyası Oluşturma
+Bu ön bilgilerden sonra start_apps.bat adında bir batch script dosyası oluşturalım. Amacımız bilgisayarımız açıldığında start_apps.bat dosyasını çalıştırarak isteğimiz birçok programı tek seferde açmak.
 
-`type nul > start-apps.bat`
+```cmd
+$ type nul > start_apps.bat
+```
 
 Dosyamızı notepad++ ile açalım.
-
-`start notepad++.exe start-apps.bat`
+```cmd
+$ start notepad++.exe start-apps.bat
+```
 
 Bat dosyamızın içine toplu açmak isteğimiz programların .exe uzantılı dosyalarının bulunduğu yolu ekleyelim.
 
@@ -86,8 +115,10 @@ start C:\"Program Files"\JetBrains\"WebStorm 2021.1.3"\bin\webstorm64.exe D:\pro
 
 __Açıklama:__
 
-*C:\PROGRA~1* "C:\Program Files" yolunu temsil eder. Bu şekilde de kullanılablir. Boşluklu klasör adı veya yolu varsa çift tırnak ("") kullanılmalıdır.
+`C:\PROGRA~1` "C:\Program Files" yolunu temsil eder. Bu şekilde de kullanılablir. Boşluklu klasör adı veya yolu varsa çift tırnak ("") kullanılmalıdır.
 Programlar `the sytem environment variables -> Path`' a ekli ise dirext .exe olarak da çalışır aksi halde tüm yol girilmelir.
 
-... ve son :)
+... ve son olarak start_apps.bat dosyasını çalıştıralım.
+
+---
 
