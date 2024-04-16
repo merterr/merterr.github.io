@@ -1,11 +1,9 @@
 ---
 layout: post
-title: Bir ASP.NET Framework Projesini Windows Docker Container ile Yayınlama
+title: Bir ASP.NET Framework Web Projesini Windows Docker Container Olarak Yayınlama
 
 ---
 ## Giriş
-
-*.NET Framework projesini ile windows container olarak ayağa kaldıracağız.*
 
 *Bu örnekte .NET Framework 4.8 ve ortam olarak Visual Studio IDE kullanacağız.*
 
