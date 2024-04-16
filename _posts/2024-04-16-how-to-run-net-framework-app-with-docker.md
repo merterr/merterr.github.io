@@ -23,7 +23,7 @@ Test.Service katmanının görevi veritabanından veriyi alıp Test.UI katmanın
 Kullanıcı etkileşimi Test.UI katmanıyla yapılmaktadır.
 Test.UI katmanı çalıştırabilir bir katmandır ve projenin başlangıç katmanıdır. Bu yüzden build ve publish işlemleri bu katman için yapılacaktır.
 
-![Proje Yapisi](../public/images/2024-04-16/proje-yapisi.png)
+![Proje Yapisi](/public/images/2024-04-16/proje-yapisi.png)
 
 ## Build ve Publish Alma
 Bir publish profile oluşturalım.
@@ -46,7 +46,7 @@ $ msbuild /p:PublishProfile=Publish /p:DeployOnBuild=true
 
 "Test/Test.UI/bin/app.publish/" yoluna eriştiğimizde projenin derlenmiş halini görmeliyiz.
 
-![Projenin Derlenmis Hali](../public/images/2024-04-16/derlenen-proje.png)
+![Projenin Derlenmis Hali](/public/images/2024-04-16/derlenen-proje.png)
 
 Bu kısım önemli çünkü bu kısmı Dockerfile'a ekleyeceğiz.
 
@@ -125,5 +125,5 @@ $ docker run --name test_ui_cont -p 88:80 -dit test-net2022
 ```
 
 
-![Sonuc](../public/images/2024-04-16/result.png)
+![Sonuc](/public/images/2024-04-16/result.png)
 
