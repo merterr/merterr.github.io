@@ -120,6 +120,6 @@ docker run --name ng-test-cont -dit -p 4201:80 ng-test
 
 8. Sonuç
 
-![Sonuç](../public/images/2023-09-20/hostname_and_os_name.jpg)
+![Sonuç](/public/images/2023-09-20/hostname_and_os_name.jpg)
 
 
