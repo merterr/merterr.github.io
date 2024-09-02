@@ -17,3 +17,25 @@ Program yazarken en sık yaptığım hatalar genelde en basit hatalar oluyor. S�
 3. Başka bir yapılan hata da çağrılan fonksiyonun ne döndürdüğünün ve hangi tipte döndürdüğünün tespit edilmemesidir. Örnek: int değer döndüren fonksiyondan gelen cevabı string değişkene atamak. Bu durumda tip dönüşümü yapılmalı. Yada AClass tipinden bir List'i BClass tipinden bir List'e atamak. Bu durumda mapping yapılmalı.
 
 4. Yazdığınız kodunuzun doğru olduğuna inanıyorsanız ve github'da olan açık kaynaklı bir kütüphane kullanıyorsanız ilgili kütüphanenin repository'sindeki issues'i kontrol edin. Belki de o kütüphanede hata olabilir. Ek olarak kütüphanenin sürümüne de dikkat edin.
+
+---
+
+## Hatalar
+
+1. "primary key constraint duplicate key error" Hatası ve Çözümü
+
+Bu hata genellikle PK'sı otomatik olarak artan tablolara elle kayıt eklenmesinden sonra oluşur.
+PK'yı en son kaldığı yerden başlatmak gereklidir.
+
+
+PSQL'de çözümü
+
+```sql
+SELECT setval('"table_name_id_seq"', (SELECT MAX("pk_col_name") FROM "table_name"));
+```
+
+MSSQL'de çözümü
+
+```sql
+DBCC checkident ('TableName', reseed, last_pk)
+```
