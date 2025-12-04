@@ -1,11 +1,13 @@
 ---
 layout: page
-title: Araçlar
-order : 4
+title: Rastgele Tc No Üretme
+order: 4
 ---
 
 ---
+
 ## Rastgele Tc No Üretme
+
 <style>
   .tc-area{
     margin-top: 1rem;
@@ -52,8 +54,6 @@ order : 4
     <button class="mertt-btn" id="copyBtn">Kopyala</button>
   </div>
 </div>
-
-
 
  <script>
     document.addEventListener("DOMContentLoaded", function() {
