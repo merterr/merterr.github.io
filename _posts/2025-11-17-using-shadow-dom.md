@@ -4,7 +4,7 @@ title: Shadow DOM Kullanımı
 order: 4
 ---
 
-## Shadow DOM Kullanımı
+## Shadow Element Tanımlama
 
 ```html
 <div id="my-shadow-host"></div>
@@ -15,7 +15,6 @@ order: 4
 ```js
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-
         const host = document.getElementById("my-shadow-host");
         const hidden = document.getElementById("hidden-content");
 
@@ -38,14 +37,17 @@ order: 4
 </script>
 ```
 
+## Shadow Elemente Erişmek
+
 ```js
 document.addEventListener("DOMContentLoaded", function () {
   const observer = new MutationObserver(() => {
-    const liveChatAiEl = document.getElementById("live-chat-ai-host");
+    const myShadowHostEl = document.getElementById("my-shadow-host");
 
-    if (liveChatAiEl) {
-      const shadow = liveChatAiEl.shadowRoot;
-      const btn = shadow.querySelector("#live-chat-ai-button");
+    if (myShadowHostEl) {
+      const shadow = myShadowHostEl.shadowRoot;
+      //shadow elemanın bir butonuna erişmek (buton id'si myButton olsun)
+      const btn = shadow.querySelector("#myButton");
       btn.style = "left: auto;right: 4.5rem;bottom: 5.5rem;";
       observer.disconnect();
     }
