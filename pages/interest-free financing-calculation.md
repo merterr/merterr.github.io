@@ -5,29 +5,26 @@ order: 4
 ---
 
 <div>
-  <label for="organizationFeeRate">Organizasyon Ücreti Oranı (%)</label>
-  <input id="organizationFeeRate" type="text" />
-  <br />
-
-<label for="monthlyInstallmentFee">Aylık Taksit Tutarı: </span>
+<label for="organizationFeeRate">Organizasyon Ücreti Oranı (%)</label>
+<input id="organizationFeeRate" type="text" />
+<br />
+<label for="monthlyInstallmentFee">Aylık Taksit Tutarı: </label>
 <input id="monthlyInstallmentFee" type="text" />
 <br />
 <label for="loan">Kredi</label>
 <input id="loan" type="text" />
-
 <br />
 <button  id="calc">Hesapla</button>
-
-  <hr />
+<hr />
+<br />
+<span>Organizasyon Ücreti: </span>
+<div id="organizationFee"></div>
+<br />
+<span>Aylık Taksit Sayısı: </span>
+<div id="monthlyInstallmentCount"></div>
   <br />
-  <span>Organizasyon Ücreti: </span>
-  <div id="organizationFee"></div>
-  <br />
-  <span>Aylık Taksit Sayısı: </span>
-  <div id="monthlyInstallmentCount"></div>
-    <br />
-  <span>Paranın Alınacağı Ay: </span>
-  <div id="inWhichMonth"></div>
+<span>Paranın Alınacağı Ay: </span>
+<div id="inWhichMonth"></div>
 </div>
 
 <script>
