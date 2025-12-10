@@ -6,8 +6,6 @@ order: 4
 
 ---
 
-## Rastgele Tc No Üretme
-
 <style>
   .tc-area{
     margin-top: 1rem;

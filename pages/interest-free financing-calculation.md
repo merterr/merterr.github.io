@@ -4,8 +4,6 @@ title: Evim Finansman Hesaplama
 order: 4
 ---
 
-## Evim Firmaları Finansman Hesaplama
-
 <div>
   <label for="organizationFeeRate">Organizasyon Ücreti Oranı (%)</label>
   <input id="organizationFeeRate" type="text" />
@@ -20,8 +18,7 @@ order: 4
 <br />
 <button  id="calc">Hesapla</button>
 
----
-
+  <hr />
   <br />
   <span>Organizasyon Ücreti: </span>
   <div id="organizationFee"></div>

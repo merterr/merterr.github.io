@@ -1,10 +1,10 @@
 ---
 layout: page
-title: Evim Finansman Hesaplama
+title: Shadow DOM Kullanımı
 order: 4
 ---
 
-# Shadow DOM Kullanımı
+## Shadow DOM Kullanımı
 
 ```html
 <div id="my-shadow-host"></div>
